@@ -80,7 +80,7 @@ html {
     position: absolute;
     top: 100%;
     left: 0;
-    box-shadow: 0px 24px 24px #ccc;
+    box-shadow: 0px 8px 10px #ccc;
     display: none;
 }
 li:hover .header--list--hide {
@@ -248,7 +248,6 @@ li:hover .header--list--hide {
 .footer .Git{
     width: 50%;
 }
-
 
 .footer .fa-facebook,
 .footer .fa-github{
