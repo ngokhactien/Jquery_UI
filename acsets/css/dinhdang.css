@@ -1,0 +1,282 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* dùng chung */
+.padding{
+    padding: 6%  5% ;
+}
+
+.margin-left{
+    margin: 30px 60px !important;
+    
+}
+.margin-top{
+    margin-top: 100px;
+}
+
+.margin-10{
+    margin: 10px;
+}
+
+.padding-top{
+    padding-top: 100px;
+} 
+
+.width-30{
+    min-width: 30px;
+}
+
+/* header */
+.header{
+    width: 100%;
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    height: auto;
+    min-height: 37px;
+}
+.header .header--list{
+    display: flex;
+    list-style: none;
+}
+
+.header--list li{
+    background: black;
+    color: white;
+    min-width: 100px;
+    text-align: center;
+}
+
+.header--list li:hover{
+    background-color: dodgerblue;
+}
+.header--list li:last-child{
+    position: relative;
+
+}
+.header--list li:last-child li{
+    min-width:200px ;
+}
+.header--list li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+}
+
+.header--list .header--list--hide {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 24px 24px #ccc;
+    display: none;
+}
+li:hover .header--list--hide {
+    display: block;
+} 
+
+.header--list--hide li{
+    padding: 10px;
+    text-align: left;
+}
+
+/* content */
+.content{
+    position: relative;
+    margin-top: 38px;
+}
+
+/* loaddata */
+.loadData{
+    height: 140px;
+    display: initial;
+}
+.a{
+    display: block;
+}
+.header_loadData{
+    margin: 14px;
+}
+.header_loadData-bt{
+    text-decoration: none;
+}
+#my-prb{
+    position: relative;
+}
+
+#my-prb-label { 
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* birtday */
+.birtday{
+    width: 150px;
+}
+/* .birtday{
+    margin: 30px 22px;
+} */
+
+/* Autocomplete */
+.Autocomplete{
+    margin-top: 50px;
+}
+/* .complete{
+    margin: 30px 22px;
+} */
+
+/* menu */
+    /* cái này của menu-jquery-ui */
+.ui-menu { width: 150px; }  
+
+
+/* Spinner */
+.Spinner input{
+    outline:none;
+}
+
+/* Slider */
+.mySlider1{
+    width: 250px;
+}
+.mySlider2{
+    min-height: 200px;
+}
+    /* cái này cài màu */
+.red .ui-slider-range { background-color:red; }
+.red .ui-slider-handle { border-color: #ef2929; }
+
+.yellow .ui-slider-range { background-color:yellow; }
+.yellow .ui-slider-handle { border-color: yellow; }
+
+.ui-state-default:focus-visible{
+    outline : none
+}
+
+/* Draggable */ 
+/* Droppable */
+.Draggable , .myDroppable{
+    width: 400px;
+    height: 300px;
+    border: 1px solid #ccc;
+}
+
+.myDroppable{
+    border: 1px solid red;
+}
+
+.MyDraggable , .MyDraggable2 , .MyDraggable3{
+    width: 30%;
+    height: 70px;
+    background-color: #ef2929;
+    cursor: pointer;
+}
+
+/* Resizable */
+.Resizable_1  , .Resizable_2{
+    border: 1px solid #ccc;
+    min-width: 150px;
+    width: 150px;
+    min-height: 100px;
+    margin-bottom: 20px;
+    background-color: dodgerblue;
+}
+
+/* Sortable  */
+.sortable_table {
+    display: flex;
+}
+
+.sortable_table div:first-child{
+    margin-right: 100px;
+} 
+
+.sortable_table div:last-child{
+    margin-left: 100px;
+} 
+
+.MyConnect{
+    border: 1px solid crimson;
+    padding: 0;
+    min-height: 60px;
+    min-width: 143px;
+}
+
+.MyConnect li{
+    padding: 10px;
+    width: 100px;
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* footer */
+.footer{
+    display: flex;
+    background-color: black;
+    min-height: 200px;
+    justify-content: space-around;
+    font-size: 14px;
+    align-items: center;
+    /* width: 100%; */
+    text-align: center;
+    position: relative;
+}
+.footer .fb{
+    position: relative;
+}
+
+.footer .fb,
+.footer .Git{
+    width: 50%;
+}
+
+
+.footer .fa-facebook,
+.footer .fa-github{
+    font-size: 27px;
+}
+
+.footer .fab{
+    color: white;
+}
+
+/* .footer .fb{
+    border-right: 1px solid red;
+} */
+
+.footer .fb a,
+.footer .Git a{
+    text-decoration: none;
+    color: white;
+    padding-left: 10px;
+}
+
+.footer-separate::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 140px;
+    border-left: 1px solid white;
+    top: -50px;
+    right: 0;
+}

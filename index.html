@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./acsets/css/dinhdang.css">
+    
+    <!-- icon -->
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/2991/2991364.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <!-- jquery  link này đứng trước js jquery-UI-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="./acsets/js/jquery.js"></script>
+    <title>Jquery Ui</title>
+</head>
+<body>
+    <div class="main">
+
+        <header class="header">
+            <ul class="header--list">
+                <li> <a href="#"> Load data </a> </li>
+                <li> <a href="#date"> Birtday </a> </li>
+                <li> <a href="#accordion"> Table content </a> </li>
+                <li> <a href="#input-value"> Input-value </a> </li>
+                <li> <a href="#menu"> Menu </a> </li>
+                <li> <a href="#tab-content"> Tabs-Conent </a> </li>
+                <li> 
+                    <a class="fa fa-chevron-down" aria-hidden="true"></a> 
+                    <ul  class="header--list--hide">
+                        <li> <a href="#Spinner">  Spinner </a> </li>
+                        <li> <a href="#Slider">  Slider </a> </li>
+                        <li> <a href="#Draggable">  Draggable </a> </li>
+                        <li> <a href="#Droppable">  Draggable - Droppable </a> </li>
+                        <li> <a href="#Resizable">  Resizable </a> </li>
+                        <li> <a href="#Sortable">  Sortable </a> </li>      
+                    </ul>
+                </li>
+                
+            </ul>
+        </header>
+
+        <div class="content padding">
+            
+            <!-- loaddata -->
+            <div class="loadData padding-top" >
+                <span>Load data <br></span>
+                <div >
+                    <div class="header_loadData margin-left">
+                        <a class="header_loadData-bt my-tooltip  " href="javascript:StartProgressbar()" title="Bạn click vào đây Progressbar sẽ chạy !" >Bắt Đầu</a>
+                    </div>
+                    <div class="margin-left" id="my-prb">
+                        <p id="my-prb-label">Đang chờ bắt đầu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- date -->
+            <div class="date padding-top" id="date">
+                <label for="birtday" >Sinh nhật của bạn ? <br> </label>
+                <input type="text" class="birtday margin-left" id="birtday" >
+            </div>
+            
+            <!-- accordion -->
+            <div id="accordion" class="table_accordion--content padding-top">
+                <span>Table content :</span>
+                <div class="my-accordion margin-left" style="width: 300px;">
+                    <h3>Tab thứ 1</h3>
+                    <div>Nội dung thứ 1</div>
+                    <h3>Tab thứ 2</h3>
+                    <div>Nội dung thứ 2</div>
+                    <h3>Tab thứ 3</h3>
+                    <div>Nội dung thứ 3</div>
+                </div>
+            </div>
+            
+
+            <!-- gợi ý ô input -->
+            <div id="input-value" class="Autocomplete padding-top">
+                <label for="nhap" >Gợi ý ô input <br></label>
+                <input type="text" id="nhap" class="complete margin-left">
+            </div>
+
+            <!-- menu -->
+            <div id="menu" class="menu padding-top">
+                <span>Menu</span>
+                <ul class="my-menu margin-left"  style="width: 150px;">
+                    <li>
+                        <div>Menu A</div>
+                        <ul>
+                            <li>
+                                <div>A1</div>
+                            </li>
+                            <li>
+                                <div>A2</div>
+                                <ul>
+                                    <li>
+                                        <div>A.2.1</div>
+                                    </li>
+                                    <li>
+                                        <div>A.2.2</div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ui-state-disabled">
+                        <div>Menu B</div>
+                    </li>
+                    <li>
+                        <div>Menu C</div>
+                        <ul>
+                            <li>
+                                <div>C.1.1</div>
+                            </li>
+                            <li>
+                                <div>C.1.2</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- tab-content  -->
+            <div id="tab-content" class="tabs padding-top">
+                <span>Tabs-Content :</span>
+                <div class="myTabs margin-left" style="width: 600px;">
+                    <ul>
+                        <li><a href="#tab_1">Giới Thiệu</a></li>
+                        <li><a href="#tab_2">Nội dung sơ lược</a></li>
+                        <li><a href="#tab_3">Liên hệ chi tiết</a></li>
+                    </ul>
+                    <div id="tab_1">
+                        <p>Nội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệuNội dung phần giới thiệu</p>
+                    </div>
+                    <div id="tab_2">
+                        <p>Ngội dung phần nội dung sơ lược </p>
+                    </div>
+                    <div id="tab_3">
+                        <p>Nội dung phần liên hệ chi tiết </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spinner  -->
+            <div id="Spinner" class="Spinner padding-top">
+                <span>Spinner: </span>
+                <div class="margin-left">
+                    <span class="margin-10">Spinner :</span>
+                    <input type="text" value="0" class="mySpinner">
+                    <br/>
+                    <br/>
+                    <span class="margin-10 " > Giá trị hiện tại :</span>
+                    <label for="" class="SpinnerValue">0</label>
+                </div>
+                
+            </div>
+
+            <!-- Slider -->
+            <div id="Slider" class="Slider padding-top">
+                <Span>Slider :</Span>
+                <div class="margin-left">
+                    <div style="display:flex;">
+                        <lable class="Slidervalue1 width-30">0%</lable>
+                        <div class="mySlider1 red margin-left"></div>       
+                    </div>
+                    <br>
+                    <div style="display:flex;">
+                        <lable class="Slidervalue2 width-30">0%</lable>
+                        <div class="mySlider2 yellow margin-left"></div>
+                    </div>
+                </div>
+            
+            </div>  
+
+            <!-- Draggable -->
+            <div id="Draggable" class="padding-top">
+                <span>Draggable :</span>
+                <div class="Draggable margin-left " style="overflow:scroll">
+                    <div class="MyDraggable">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Droppable :  -->
+            <div id="Droppable" class="Droppable padding-top">
+                <span>
+                    Draggable - Droppable : 
+                    <button class="tooltip-Droppable" style="border: none;" title="Bạn tương tác với ô màu đỏ duy chuyển qua khung thứ 2 !" >chú ý</button>
+                </span>
+                <div style="display: flex;">
+                    <!-- table1 -->
+                    <div class="Draggable margin-left " >
+                        <div class="MyDraggable2">
+                        </div>
+                    </div>
+
+                    <!-- -table2 -->
+                    <div class="myDroppable margin-left " ></div>
+                    
+                    <!-- -table3 -->
+                    <div class="Draggable margin-left " >
+                        <div class="MyDraggable3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resizable -->
+            <div id="Resizable" class="Resizable padding-top">
+                <span>Resizable :</span>
+                <div class="margin-left" style="display: block;">
+                    <div class="Resizable_1">A</div>
+                    <div class="Resizable_2">B</div>
+                </div>
+            </div>
+            
+            <!-- Sortable  -->
+            <div id="Sortable" class="Sortable padding-top">
+                <span>Sortable :</span>
+                <div class="sortable_table margin-left">
+                    <div >
+                        <label >Table 1 :</label>
+                        <ul class="MySortable1 MyConnect">
+                            <li>A-1</li>
+                            <li>A-2</li>
+                            <li>A-3</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <lable >Table 2 :</lable>
+                        <ul class="MySortable2 MyConnect">
+                            <li>B-1</li>
+                            <li>B-2</li>
+                            <li>B-3</li>
+                        </ul>
+                    </div>
+
+                    <div >
+                        <label >Table 3 :</label>
+                        <ul class="MySortable3 MyConnect">
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div> 
+            
+            <!-- Selectable -->
+            <div id="Selectable" class="Selectable padding-top">
+                <span>Selectable :</span>
+                <div class="MySelectable">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="fb ">
+                <a class="fab fa-facebook" href="https://www.facebook.com/tiennk.020799/" ></a>
+                <a class="footer-separate" href="https://www.facebook.com/tiennk.020799/">facebook</a>
+            </div>
+            <div class="Git">
+                <a  class="fab fa-github" href="https://github.com/ngokhactien/"></a>
+                <a href="https://github.com/ngokhactien/"> Github</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+

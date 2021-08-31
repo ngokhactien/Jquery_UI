@@ -1,0 +1,351 @@
+khác biệt giữa sự kiện js và jquery : 
+	- js gọi sự kiện onChange , onClick ,on...
+	- jquery gọi sự kiện  change , click , ...
+
+// vào là dùng : 
+
+$(selector)  //cú pháp 
+   
+1.Jquery với thuộc tính attribute
+	- Đọc nội dung thuộc tính: $(selector).attr(“attribute-name”); // đối tượng đầu tiên
+	
+	- Gán nội dung mới cho thuộc tính: $(selector).attr(“attribute-name” , ”new-value”); 
+
+	- Xóa thuộc tính: $(selector).removeAttr(“attribute-name”); 
+		
+	vd : 
+		<img  id ='hinh' src ='hinh1' > hello </q>
+		=>  $('#hinh').attr("src" ,"hinh2")
+2.Jquery với class
+	- Thêm một class mới: $(selector).addClass(“class_value”);
+		Lệnh này không đổi các class đang có mà sẽ gắn thêm class mới cho selector
+	
+	- Xóa một class: $(selector).removeClass(“class_value”);	
+		Nếu selector nhiều đối tượng thì sẽ áp dụng cho tất cả
+	
+	- Kiểm tra tồn tại class: $(selector).hasClass(“class_value”);
+		Nếu selector có class_value thì trả về TRUE và ngược lại là FALSE
+	vd xóa class:
+		<img  id ='hinh' class='w1' src ='hinh1' > hello </q>
+		=>  $('#hinh').addClass('w2')
+		    $('#hinh').addClass('w3')
+		=>  $('#hinh').removeClass('w2').removeClass('w3')  // có thể xóa hai cái cùng lúc 
+
+3.Jquery với css // nó sẽ trả về giá trị bất cứ thuộc tính nào của thẻ   // đọc value của css
+	
+	- Đọc giá trị một thuộc tính css: $(selector).css(“tên thuộc tính css”);
+		Nếu selector có nhiều đối tượng thì chỉ nhận đối tượng đầu tiên
+		Ví dụ: $(“#my_id”).css(“background-image”);
+
+	- Đổi giá trị một thuộc tính css: $(selector).css(“tên thuộc tính”, “giá trị mới”);
+		Nếu selector nhiều đối tượng thì sẽ áp dụng cho tất cả
+		Ví dụ: $(“#my_id”).css(“border” , “1px solid #ccc”);
+
+4. Đọc và đổi nội dung 
+	Đọc nội dung HTML của selector: $(selector).html(); // đọc tất cả các thẻ ở trong thẻ 
+
+	Đổi nội dung HTML của selector: $(selector).html(“<b>nội dung mới</b>”); // đổi nội dung mới s
+	
+	------------------------
+	
+	Đọc nội dung TEXT của selector: $(selector).text();		// đọc tất cả các nội dung trong thẻ , trong đó có 2 3 dòng thẻ p và span đọc hết nội dung  
+
+	Đổi nội dung TEXT của selector: $(selector).text(“nội dung mới”); // sẽ đổi tất cả nội dung bên trong cả thẻ thành 1 đoạn text
+
+5 . chèn thêm nội dung bên trong thẻ html
+
+	 - chèn nội dung vào đầu nội dung 
+		$(selector).prepend('nội dung mới'); 
+		$('nội dung mới').prependTo(selector);
+
+	 - chèn nội dung vào cuối nội dung  
+		$(selector).append('nội dung mới');
+		$('nội dung mới').appendTo(selector);
+
+
+6 . chèn thêm nội dung bên ngoài thẻ html // 1 đối tượng
+	- chèn nội dung vào sau seletctor
+		$(selector).after('nội dung mới');
+		$('nội dung mới').insertAfter(selector);
+
+	- chèn nội dung vào trước seletctor
+		$(selector).before('nội dung mới');
+		$('nội dung mới').insertBefore(selector);
+	vd 
+	   html :
+		<div> 	
+			<h1 class='h1'> hello </h1>
+		</div> 	
+	
+	  js : var test =  document.querySelect('.h1');	
+		$(test).before('<h2> nhac <h2>');
+
+	  =>html :
+		<div> 	
+			<h2> nhac <h2>
+			<h1 class='h1'> hello </h1>
+		</div> 	
+7. xóa và thay thế nội dung  // cho 1 đối tượng đầu tiên
+	$(selector).empty() // làm rỗng nội dung bên trong như vẫn để lại thẻ đang selector
+	$(selector).remove() hoặc  $(selector).detach() // xóa bỏ cả selector ra khỏi 
+
+	 // thay đổi nội dung thẻ 
+	$(selector).replaceWith('<a>aaaaa</a>')  or $('<a>aaaaa</a>').replaceAll(selector)
+
+8.tác dụng vào cấu trúc bao trùm thẻ 
+	
+	$(selector).wrap('<div></div>') // nó sẽ bao trùm bằng thẻ này
+		vd : 
+			<div>
+				<p>
+					<span class='text1'> a </span>
+				 </p>
+			</div>
+
+			$(....text1).wrap('<div></div>') // sẽ xóa thẻ p bao nó
+			
+			==> <div>  
+            			<p>
+                		    <div>
+                    			<span class='text1'> a </span>
+                		    </div>
+            			</p>
+        		    </div>
+
+	$(selector).upwrap() // dùng để xóa thẻ bao nói
+		vd : 
+			<div>
+				<p>
+					<span class='text1'> a </span>
+				 </p>
+			</div>
+
+			$(....text1).upwrap() // sẽ xóa thẻ p bao nó
+			
+			==> <div>  
+					<span class='text1'> a </span>
+			    </div>
+	$(selector).wrapAll('<div></div>') // sẽ trùm tất cái các selector vào <div></div> rồi đẩy những selector ko đc gọi ra
+	$(selector).wrapInner('<div></div>') // nó sẽ bao bọc nội dung của selector đang gọi
+		vd : <div>
+            		<p>
+                		<span class='text1'> a </span>
+             		</p>
+        	     </div>
+
+       		     $(....text1).wrapInner('<u></u>') 
+        
+        	     ==> <div>  
+                		<span class='text1'> <u> a </u> </span>
+            		</div>
+
+
+-------------------------------bài 3 : sự kiện  -------------------------------
+
+1 . điều kiện $(selector).tên_sự_kiện(hendlerFunstion) hoặc  $(selector).tên_sự_kiện(function () { .... })
+	vd :$(document).click(function () { alert(' hello ') }) // document ở đó là chúng ta click lên chỗ nào cũng chạy
+
+2. sự kiện về trình duyệt
+	$(selector).error(hendlerFunstion)      // sự kiện đã có lỗi xảy ra với selection
+	$(selector).resize(hendlerFunstion)	// sự kiện đã selection bị thay đổi kích thước 
+	$(selector).scroll(hendlerFunstion)	// sự kiện đã thay đổi thao tác cuộn trên selector // ví dụ kéo lên kéo xuống selection dùng window
+
+	vd $(window).resize(function(){
+		var x = $(window).width();
+		var y = $(window).height();
+	       $('#status').html('chiều rộng ' + x + 'px và chiều cao'+ y + 'px');	
+		
+	})
+
+3.sự kiện nội dung (loading Event)
+    	$(selector).ready(hendlerFunstion)  // sự kiện đã tải xong nội dung và sẳn sàng // vd : chạy xong hết html rồi mới chạy sự kiện ready 
+	$(selector).load(hendlerFunstion) // sự kiện tải xong nội dung // vd giống như  1 tấm hình hay video tải xong rồi thì sự kiện sẽ chạy
+	$(window).unload(hendlerFunstion)  //sự kiện khi trang web bị tắt hoặc chuyển hướng khác // sự kiện này chỉ dành cho window , vd: bạn muốn đóng trình duyệt nó sẽ bảo báo đang thay đổi gì đó bạn có muốn đóng ko 
+	
+	$(selector).holdReady(true/false)  // đây là hàm của jquery giúp chúng ta có thể tạm thời giữ cho sự kiện ready không xảy ra(khi cần thiết) .
+		giá trị true sẽ thực hiện việc chờ (tạm thời) và false sẽ xóa bỏ sự tạm thời
+
+4. sự kiện chuột 
+	$(selector).click(hendlerFunstion)  		// khi click chuột
+	$(selector).contextmenu(hendlerFunstion)  	// sự kiện click chuột phải
+	$(selector).bdclick(hendlerFunstion) 		// sự kiện double click
+	$(selector).hover(hendlerFunstion) 		// sự kiện rê chuột lên đối tượng
+	$(selector).mousedown(hendlerFunstion) 		// click nhưng chưa chấc chuột lên vd :  click vào nó xuống nhưng chưa click thả ra
+	$(selector).mouseup(hendlerFunstion) 		// click đã nhấc chuột lên
+	$(selector).mouseover(hendlerFunstion)      // giống hover
+	$(selector).mouseout(hendlerFunstion)		// sự kiện rời khỏi đối tượng , nó phải vào đối tượng rồi nó đi ra
+	$(selector).mousemove(hendlerFunstion)         // sự kiện chuột di chuyển // vd như cho chuột chạy trên màn hình
+
+sự kiện hay
+	$(selector).toggle(hendlerFunstion1 , hendlerFunstion2 , ...)  
+		// sự kiện này click lần nhất gọi hendlerFunstion1  , lần 2 gọi hendlerFunstion2 
+		// tối đa 4 function , tới cái thứ 4 nó sẽ quay lại hendlerFunstion1
+
+
+
+----------------------------------bài 4 sự kiện bàn phím...............................
+
+
+1 . sự iện bàn phím 
+
+	$(selector).keypress(hendlerFunstion) 	// sự kiện gõ bàn phím 				// vd: nhấn nút nào trên bàn phím 
+	$(selector).keydown(hendlerFunstion)  	// sự kiện thao tác bàn phím xuống  		// vd:  như cho họ giữ nguyên 1 bàn phím nào đó
+	$(selector).keypress(hendlerFunstion)	// sự kiện thao tác nhả phím 			// vd : khi bấn xong nhả phím đó ra 
+
+2.sự kiện biểu mẫu 
+	$(selector).focus(hendlerFunstion)   	// sự kiện con trỏ đang tác động selection
+	$(selector).blur(hendlerFunstion) 	// sự kiện hủy targer selection 		// vd : như khi ra khỏi thẻ input 
+	$(selector).change(hendlerFunstion)	// sự kiện thay đổi giá trị của selection   	// vd : thay đổi giá trị của input , selection
+	$(selector).select(hendlerFunstion)	// sự kiện tô đen một văn bản trong selection   // vd : hành vi copy 1 văn bản selection
+	$(selector).submit(hendlerFunstion)	// sự kiện bắt đầu việc submit form
+
+3. cài đặt tổng quát
+	// thực thi 
+		$(selector).bind('javascripEnentName', hendlerFunstion) 
+ 
+		$(selector).bind('jspEnentName1 jspEnentName2', hendlerFunstion)
+		
+	// hủy bỏ
+		$(selector).unbind('javascripEnentName')		
+
+
+	// cách viết js 
+	vd :
+		// cách viết này thông qua tên javascrip
+		// cách 1 :
+
+		$( "#foo" ).bind( "onClick", function() {
+  			alert( "User clicked on 'foo.'" );
+		});
+		
+		// cách 2 :
+		$( "#foo" ).click(
+			function() {
+  				alert( "User clicked on 'foo.'" );
+			}
+		)
+
+------------------bài 5 chuyển động ----------------
+I. 1.1 . hiện thị : // có tổng 5 cú pháp
+	$(selector).show() // mặc định
+	$(selector).show([duration])   // mặc định duration là 400 (mili giây)
+	$(selector).show([easing])	// linear(chuyển động đều) , swing(tăng dần + giảm dần)
+	$(selector).show([hendlerFunstion])		
+	$(selector).show([duration] , [linear] , [hendlerFunstion] )
+
+
+ 1.2. ẩn hiện thị : 
+	$(selector).hide() // mặc định
+	......// như trên show
+
+II . 2.1. hàm slideDown() - hiện thị với hiệu ứng trượt 
+	$(selector).sideDown() 
+	......// như trên show
+ 2.2. hàm slideUp() - ẩn với hiệu ứng trượt 
+	$(selector).sideDown() 
+	......// như trên show
+ 2.3. hàm slideToggle() - ẩn/ hiện với hiệu ứng trượt  // để nhận biết
+	$(selector).slideToggle() 
+	......// như trên show
+
+
+III . 3.1 hàm fadeln() -tăng dần opacity đến 1
+	$(selector).fadeln() 
+	$(selector).fadeln([duration])   // mặc định duration là 400 (mili giây)
+	$(selector).fadeln([hendlerFunstion])		
+	$(selector).fadeln([duration], [hendlerFunstion] )
+
+ 3.2 hàm fadeln() - giảm dần opacity đến 1
+	$(selector).fadeOut() 
+	$(selector).fadeOut([duration])   // mặc định duration là 400 (mili giây)
+	$(selector).fadeOut([hendlerFunstion])		
+	$(selector).fadeOut([duration], [hendlerFunstion] )
+
+3.4 hàm fadeTo() -  opacity dần đến x (0->1)
+	$(selector).fadeOut(duration , x) 	
+	$(selector).fadeOut([duration],x ,[hendlerFunstion] )
+
+-----------------------bài 6 : animation ------------------------
+1.animate()  
+	$(selector).animate(
+		{
+			thuộc tính 1 : giá trị tiến tới,
+			......
+		}
+		,[duration]
+		 ,[easing] 
+		,[hendlerFunstion]	
+	);
+	vd: 
+		$(selector).animate(
+			{
+				width : '500px',
+				opacity : 0.6
+			}
+			,500
+		 	,'linear' 
+			,function() {
+  				alert( "đã xong" );
+			}	
+		);
+	
+2.stop()
+	$(selector).stop([removeQuery],[jumtoEnd]); // 2 tham số true , false
+
+ - nếu [removeQuery] = true đồng nghĩa với việc dừng mọi chuyển động chờ . mặc định false
+ - nếu [jumtoEnd] = true thì việc dừng hiệu ứng sẽ được thay thế bằng cách tiến thẳng tới giá trị cuối của 
+thuộc tính mà ko vần thay đổi từ từ . mặc định là false  // là dừng lại animation và trả về giá trị cần tới liền ko phải chạy từ từ
+
+------------------------bài 7 :ajax----------------------------
+
+	$.ajax({
+		url : 'html://...',	
+		type : 'GET' ,
+		data: {name1 : value1 , name2 : value2 , ..}
+	}).fail(function(res){
+		// code xử lý khi có lỗi
+	}).done(function(res){
+		// code xử lý khi hoàn toàn bình thường 
+	}).always(function(res){
+		// luôn luôn được chạy
+	})
+
+----------------------bài 8 : jquery UI -----------------
+-----Dialog UI
+
+ bước 1 : dowload jquery UI
+ bước 2 : cú pháp
+
+	cách 1 :$(selection).dialog();
+
+	cách 2 : // dùng lệnh để mở $(selection).dialog('open');
+		$(selection).dialog({
+			autoOpen: false,			    // cái này được gọi tự động gọi hay ko để gọi dùng $(selection).dialog('open'); 
+			show: {efect : 'blind' , duration : 1000},  // có 2 thuộc tính hiệu ứng và thời gian chạy
+			hide: {efect : 'explode' , duration : 1000},
+			width: 400 , height: 'auto', 
+			resizable : flase,			     // này để cho mọi người có thay đổi kích thước dialog hay ko
+			modal : true ,      			   // true để mở button // cho phép tùy chỉnh button hay ko 
+			buttons :{
+				'đồng ý' : function(){
+					$(this).dialog('close');
+					// viết code cần xử lý khi đồng ý 	
+				},
+				'Hủy bỏ' : function(){
+					$(this).dialog('close');
+					// viết code cần xử lý khi hủy bỏ 	
+				}
+			}
+		});
+
+
+----------------------------bài 9 Progressbar, Datepicker và Tooltip------------------
+
+
+
+
+
+
+
+
+
